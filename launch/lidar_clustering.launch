@@ -1,0 +1,29 @@
+<launch>
+  <arg name="downsample_cloud" default="false" />
+  <arg name="leaf_size" default="0.1" />
+  <arg name="get_ground_cloud" default="false" />
+  <arg name="cluster_min_size" default="20" />
+  <arg name="cluster_max_size" default="10000" />
+  <arg name="clip_min_width" default="-0.3" />
+  <arg name="clip_max_width" default="0.3" />
+  <arg name="clip_min_distance" default="0.2" />
+  <arg name="clip_max_distance" default="1.67" />
+  <arg name="clip_min_height" default="-0.85" />
+  <arg name="clip_max_height" default="0.5" />
+
+
+  <node pkg="lidar_clustering" type="lidar_clustering"
+        name="lidar_clustering" output="screen">
+    <param name="downsample_cloud"  value="$(arg downsample_cloud)"/>
+    <param name="leaf_size"         value="$(arg leaf_size)"/>
+    <param name="get_ground_cloud"  value="$(arg get_ground_cloud)" />
+    <param name="cluster_min_size"  value="$(arg cluster_min_size)"/>
+    <param name="cluster_max_size"  value="$(arg cluster_max_size)" />
+    <param name="clip_min_width"    value="$(arg clip_min_width)" />
+    <param name="clip_max_width"    value="$(arg clip_max_width)" />
+    <param name="clip_min_distance" value="$(arg clip_min_distance)" />
+    <param name="clip_max_distance" value="$(arg clip_max_distance)" />
+    <param name="clip_min_height"   value="$(arg clip_min_height)" />
+    <param name="clip_max_height"   value="$(arg clip_max_height)"/>
+  </node>
+</launch>
